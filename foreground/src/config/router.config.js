@@ -25,11 +25,11 @@ export const asyncRouterMap = [
       },
       // forms
       {
-        path: '/form/base-form',
+        path: '/write',
         name: 'form',
         // redirect: '/form/base-form',
         // component: RouteView,
-        component: () => import('@/views/form/basicForm'),
+        component: () => import('@/views/write/upload'),
         meta: { title: '作文评分', icon: 'form', permission: ['form'] }
       },
       // list
