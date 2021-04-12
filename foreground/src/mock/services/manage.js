@@ -1,5 +1,6 @@
 import Mock from 'mockjs2'
 import { builder, getQueryParameters } from '../util'
+import essay from '../../assets/essay.png'
 
 const totalCount = 5701
 
@@ -40,48 +41,72 @@ const projects = () => {
   return builder({
     'data': [{
       id: 1,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
-      title: 'Alipay',
+      cover: essay,
+      title: '中考英语',
       description: '那是一种内在的东西， 他们到达不了，也无法触及的',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
     },
     {
       id: 2,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png',
-      title: 'Angular',
+      cover: essay,
+      title: '高考英语',
       description: '希望是一个好东西，也许是最好的，好东西是不会消亡的',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
     },
     {
       id: 3,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
-      title: 'Ant Design',
+      cover: essay,
+      title: '大学四六级',
       description: '城镇中有那么多的酒馆，她却偏偏走进了我的酒馆',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
     },
     {
       id: 4,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
-      title: 'Ant Design Pro',
+      cover: essay,
+      title: '考研英语',
       description: '那时候我只会想自己想要什么，从不想自己拥有什么',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
     },
     {
       id: 5,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png',
-      title: 'Bootstrap',
+      cover: essay,
+      title: '考博英语',
       description: '凛冬将至',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
     },
     {
       id: 6,
-      cover: 'https://gw.alipayobjects.com/zos/rmsportal/ComBAopevLwENQdKWiIn.png',
-      title: 'Vue',
+      cover: essay,
+      title: 'GRE',
+      description: '生命就像一盒巧克力，结果往往出人意料',
+      status: 1,
+      updatedAt: '2018-07-26 00:00:00'
+    },
+    {
+      id: 7,
+      cover: essay,
+      title: '雅思',
+      description: '生命就像一盒巧克力，结果往往出人意料',
+      status: 1,
+      updatedAt: '2018-07-26 00:00:00'
+    },
+    {
+      id: 8,
+      cover: essay,
+      title: '托福',
+      description: '生命就像一盒巧克力，结果往往出人意料',
+      status: 1,
+      updatedAt: '2018-07-26 00:00:00'
+    },
+    {
+      id: 9,
+      cover: essay,
+      title: 'SAT',
       description: '生命就像一盒巧克力，结果往往出人意料',
       status: 1,
       updatedAt: '2018-07-26 00:00:00'
@@ -99,10 +124,10 @@ const activity = () => {
     id: 1,
     user: {
       nickname: '@name',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'
+      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
     },
     project: {
-      name: '白鹭酱油开发组',
+      name: '楼市调控：尊重市场供需规律 | 经济学人',
       action: '更新',
       event: '番组计划'
     },
@@ -115,7 +140,7 @@ const activity = () => {
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
     },
     project: {
-      name: '白鹭酱油开发组',
+      name: '飞行出租车：一飞冲天？| 经济学人',
       action: '更新',
       event: '番组计划'
     },
@@ -125,10 +150,10 @@ const activity = () => {
     id: 1,
     user: {
       nickname: '@name',
-      avatar: '@image(64x64)'
+      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
     },
     project: {
-      name: '白鹭酱油开发组',
+      name: '温室效应“祸首”：甲烷排放危机 | 经济学人',
       action: '创建',
       event: '番组计划'
     },
@@ -138,41 +163,41 @@ const activity = () => {
     id: 1,
     user: {
       nickname: '曲丽丽',
-      avatar: '@image(64x64)'
+      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
     },
     project: {
-      name: '高逼格设计天团',
+      name: '“Z+时代” 社区小破站：成长的烦恼 | 经济学人',
       action: '更新',
       event: '六月迭代'
     },
     time: '2018-08-23 14:47:00'
-  },
-  {
-    id: 1,
-    user: {
-      nickname: '@name',
-      avatar: '@image(64x64)'
-    },
-    project: {
-      name: '高逼格设计天团',
-      action: 'created',
-      event: '六月迭代'
-    },
-    time: '2018-08-23 14:47:00'
-  },
-  {
-    id: 1,
-    user: {
-      nickname: '曲丽丽',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'
-    },
-    project: {
-      name: '高逼格设计天团',
-      action: 'created',
-      event: '六月迭代'
-    },
-    time: '2018-08-23 14:47:00'
   }
+  // {
+  //   id: 1,
+  //   user: {
+  //     nickname: '@name',
+  //     avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
+  //   },
+  //   project: {
+  //     name: '“致命一击”：脑损伤推升犯罪率 | 经济学人',
+  //     action: 'created',
+  //     event: '六月迭代'
+  //   },
+  //   time: '2018-08-23 14:47:00'
+  // },
+  // {
+  //   id: 1,
+  //   user: {
+  //     nickname: '曲丽丽',
+  //     avatar: 'https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png'
+  //   },
+  //   project: {
+  //     name: '就业窘境：被“毒打”的英国年轻人 | 经济学人',
+  //     action: 'created',
+  //     event: '六月迭代'
+  //   },
+  //   time: '2018-08-23 14:47:00'
+  // }
   ])
 }
 
@@ -207,40 +232,24 @@ const teams = () => {
 
 const radar = () => {
   return builder([{
-    item: '引用',
-    '个人': 70,
-    '团队': 30,
-    '部门': 40
+    item: '词汇',
+    '个人能力维度指数': 70
   },
   {
-    item: '口碑',
-    '个人': 60,
-    '团队': 70,
-    '部门': 40
+    item: '语法',
+    '个人能力维度指数': 60
   },
   {
-    item: '产量',
-    '个人': 50,
-    '团队': 60,
-    '部门': 40
+    item: '逻辑性',
+    '个人能力维度指数': 50
   },
   {
-    item: '贡献',
-    '个人': 40,
-    '团队': 50,
-    '部门': 40
+    item: '语句连贯性',
+    '个人能力维度指数': 65
   },
   {
-    item: '热度',
-    '个人': 60,
-    '团队': 70,
-    '部门': 40
-  },
-  {
-    item: '引用',
-    '个人': 70,
-    '团队': 50,
-    '部门': 40
+    item: '高级句式',
+    '个人能力维度指数': 60
   }
   ])
 }
