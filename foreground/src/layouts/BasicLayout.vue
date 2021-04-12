@@ -80,7 +80,7 @@ export default {
       // 侧栏收起状态
       collapsed: false,
       // title: defaultSettings.title,
-      title: '暗网监控系统',
+      title: 'Easy-Writing',
       settings: {
         // 布局类型
         layout: defaultSettings.layout, // 'sidemenu', 'topmenu'

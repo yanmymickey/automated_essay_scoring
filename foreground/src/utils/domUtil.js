@@ -19,4 +19,4 @@ export const setDocumentTitle = function (title) {
 }
 
 // export const domTitle = config.title
-export const domTitle = '暗网'
+export const domTitle = 'Easy-Writing'
