@@ -34,12 +34,12 @@ export const asyncRouterMap = [
       },
       // list
       {
-        path: '/list/table-list',
+        path: '/skill',
         name: 'list',
         // component: RouteView,
-        component: () => import('@/views/list/search/SearchLayout'),
+        component: () => import('@/views/skill'),
         // redirect: '/list/table-list',
-        meta: { title: '写作技巧', icon: 'table', permission: ['table'] }
+        meta: { title: '写作技巧', icon: 'rise', permission: ['table'] }
         // children: [
         //   {
         //     path: '/list/table-list/:pageNo([1-9]\\d*)?',
