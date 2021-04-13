@@ -57,7 +57,7 @@ export default {
       this.tabList = [
       { key: 'tab1', tab: '语法强化' },
       { key: 'tab2', tab: '逻辑训练' },
-      { key: 'tab3', tab: '地道表达' }
+      { key: 'tab3', tab: '经典词句' }
     ]
     return {
       tabActiveKey: 'tab1',
