@@ -9,6 +9,7 @@ import store from './store/'
 import i18n from './locales'
 import { VueAxios } from './utils/request'
 import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
+import { Collapse } from 'ant-design-vue'
 import themePluginConfig from '../config/themePluginConfig'
 import VeRing from 'v-charts/lib/ring.common'
 import VeLine from 'v-charts/lib/line.common'
@@ -27,6 +28,7 @@ Vue.config.productionTip = false
 
 // mount axios to `Vue.$http` and `this.$http`
 Vue.use(VueAxios)
+Vue.use(Collapse)
 // use pro-layout components
 Vue.component('pro-layout', ProLayout)
 Vue.component('page-container', PageHeaderWrapper)

@@ -29,11 +29,29 @@
               </a-menu>
             </a-dropdown>
           </a-col>
-          <a-col :span="4"><a-button type="primary" size="large" icon="">批改</a-button></a-col>
+          <a-col :span="4"><a-button type="primary" size="large" @click="Mark">批改</a-button></a-col>
         </a-row>
       </a-col>
-      <a-col :span="10"> <a-textarea placeholder="Basic usage" :rows="4" /> </a-col>
+      <a-col :span="10">
+        <div v-if="isUpload">
+          <a-collapse v-model="activeKey" class="suggestion">
+            <a-collapse-panel v-for="item in suggestions" :key="item.world" :header="item.world">
+              <p>{{ item.details }}</p>
+            </a-collapse-panel>
+          </a-collapse>
+        </div>
+        <div id="layout-basic" v-else>
+          <a-layout>
+            <a-layout-header>Easy-Writing</a-layout-header>
+            <a-layout-content class="tip1">人工智能识别多种错误类型</a-layout-content>
+            <a-layout-content class="tip2">囊括拼写 | 语法 | 标点符号 | 语义 等</a-layout-content>
+            <a-layout-content class="tip1">机器学习提供多种修改建议</a-layout-content>
+            <a-layout-content class="tip2">包含词汇 | 对照翻译 | | 范文推荐阅读 | 权威例句推荐 等</a-layout-content>
+          </a-layout>
+        </div>
+      </a-col>
     </a-row>
+
   </div>
 </template>
 
@@ -46,7 +64,16 @@ export default {
       maxlength: 10000,
       remnant: 0,
       write_type_list: ['通用', '小学', '初中', '高中', '四级', '六级', '考研', '雅思', '托福'],
-      write_type: '通用'
+      write_type: '通用',
+      isUpload: true,
+      text: `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`,
+      activeKey: ['1'],
+      suggestions: [
+          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
+          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
+          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
+          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' }
+      ]
     }
   },
   methods: {
@@ -59,6 +86,9 @@ export default {
     onClick ({ key }) {
       const i = key
       this.write_type = this.write_type_list[i]
+    },
+    Mark () {
+      this.isUpload = true
     }
   }
 }
@@ -101,5 +131,36 @@ export default {
 }
 .write_col {
   font-size: 18px;
+}
+#layout-basic {
+  text-align: center;
+}
+#layout-basic .ant-layout-header,
+#layout-basic .ant-layout-footer {
+  margin-bottom: 30%;
+  font-size: 40px;
+  background: none;
+}
+
+#layout-basic .ant-layout-content {
+  color: black;
+}
+#layout-basic /deep/ .tip1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#layout-basic /deep/ .tip2 {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/deep/ .suggestion{
+    height: 600px;
+    margin-top: 25px;
+    border-radius: 25px;
+    overflow-y: scroll;
 }
 </style>
