@@ -19,9 +19,9 @@
             <span>{{ remnant }}/{{ maxlength }}</span>
           </a-col>
           <a-col :span="2">
-            <a-icon type="camera" :style="{ fontSize: '30px'}"/>
+            <a-icon type="camera" :style="{ fontSize: '30px' }" />
           </a-col>
-          <a-col :span="7" class="write_col">
+          <a-col :span="6" class="write_col">
             <span>写作类型: </span><span class="write_type"> {{ write_type }}</span>
             <a-dropdown>
               <a-icon type="up" />
@@ -33,16 +33,27 @@
             </a-dropdown>
           </a-col>
           <a-col :span="4">
-            <a-button type="primary" size="large" @click="Mark" class="Mark">批改</a-button>
+            <a-button type="primary" size="large" @click="Mark" class="Mark">人工批改</a-button>
           </a-col>
           <a-col :span="4">
-            <a-button type="primary" size="large" @click="Mark" class="AIMark" >人工智能批改</a-button>
+            <a-button type="primary" size="large" @click="Mark" class="AIMark">人工智能批改</a-button>
           </a-col>
         </a-row>
       </a-col>
       <a-col :span="10">
         <div v-if="isUpload">
           <p class="suggestion_header">修改建议</p>
+          <a-descriptions layout="horizontal" bordered size="small" column="1" >
+            <a-descriptions-item label="分数">
+              {{ score }}
+            </a-descriptions-item>
+            <a-descriptions-item label="错误" :span="2">
+              {{ wrong }}
+            </a-descriptions-item>
+            <a-descriptions-item label="评价" :span="3">
+              {{ evaluate }}
+            </a-descriptions-item>
+          </a-descriptions>
           <a-collapse v-model="activeKey" class="suggestion">
             <a-collapse-panel v-for="item in suggestions" :key="item.world" :header="item.world">
               <p>{{ item.details }}</p>
@@ -60,7 +71,6 @@
         </div>
       </a-col>
     </a-row>
-
   </div>
 </template>
 
@@ -69,6 +79,9 @@ export default {
   name: 'BaseForm',
   data () {
     return {
+      evaluate: '文章字数疑似超过该考试字数要求;在高中级别下,有一定的词汇积累,能使用少量高级词汇,但还需要多积累,文章语句较为生硬,逻辑性有待加强,单词拼写基本正确,词汇基础扎实,存在较多语法错误',
+      score: 80,
+      wrong: 4,
       desc: null,
       maxlength: 10000,
       remnant: 0,
@@ -78,10 +91,10 @@ export default {
       text: `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`,
       activeKey: ['1'],
       suggestions: [
-          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
-          { world: 'for', details: '混淆介词，建议将 for 修改为 on' },
-          { world: 'the', details: '限定词冗余可能影响语义或地道表达，建议删除 the' },
-          { world: 'energizing', details: '非谓语动词不能单独做谓语，建议将 energizing 修改为 energize' }
+        { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
+        { world: 'for', details: '混淆介词，建议将 for 修改为 on' },
+        { world: 'the', details: '限定词冗余可能影响语义或地道表达，建议删除 the' },
+        { world: 'energizing', details: '非谓语动词不能单独做谓语，建议将 energizing 修改为 energize' }
       ]
     }
   },
@@ -133,7 +146,7 @@ export default {
   width: 100px;
   border-radius: 10px;
 }
-/deep/ .AIMark{
+/deep/ .AIMark {
   width: 130px;
   border-radius: 10px;
 }
@@ -170,13 +183,18 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/deep/ .suggestion{
-    height: 550px;
-    border-radius: 25px;
-    overflow-y: scroll;
+/deep/ .suggestion {
+  margin-top: 10px;
+  height: 450px;
+  border-radius: 25px;
+  overflow-y: scroll;
 }
-.suggestion_header{
-    text-align: center;
-    font-size:40px;
+.suggestion_header {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 40px;
+}
+/deep/ .ant-descriptions-view {
+  border-radius: 10px;
 }
 </style>

@@ -23,16 +23,25 @@ export const asyncRouterMap = [
         component: () => import('@/views/dashboard/Workplace'),
         meta: { title: '词句积累', icon: bxAnaalyse, permission: ['dashboard'] }
       },
-      // forms
+      // write
       {
         path: '/write',
-        name: 'form',
+        name: 'write',
         // redirect: '/form/base-form',
         // component: RouteView,
         component: () => import('@/views/write/upload'),
         meta: { title: '作文评分', icon: 'form', permission: ['form'] }
       },
-      // list
+      // dictionary
+      {
+        path: '/dictionary',
+        name: 'fdictionary',
+        // redirect: '/form/base-form',
+        // component: RouteView,
+        component: () => import('@/views/dictionary'),
+        meta: { title: '词典大全', icon: 'read', permission: ['form'] }
+      },
+      // skill
       {
         path: '/skill',
         name: 'list',
