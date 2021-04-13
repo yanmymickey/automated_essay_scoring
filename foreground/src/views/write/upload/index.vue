@@ -15,10 +15,13 @@
         />
         <a-row :gutter="[16, 16]">
           <a-col :span="1"></a-col>
-          <a-col :span="12">
+          <a-col :span="5">
             <span>{{ remnant }}/{{ maxlength }}</span>
           </a-col>
-          <a-col :span="6" class="write_col">
+          <a-col :span="2">
+            <a-icon type="camera" :style="{ fontSize: '30px'}"/>
+          </a-col>
+          <a-col :span="7" class="write_col">
             <span>写作类型: </span><span class="write_type"> {{ write_type }}</span>
             <a-dropdown>
               <a-icon type="up" />
@@ -29,11 +32,17 @@
               </a-menu>
             </a-dropdown>
           </a-col>
-          <a-col :span="4"><a-button type="primary" size="large" @click="Mark">批改</a-button></a-col>
+          <a-col :span="4">
+            <a-button type="primary" size="large" @click="Mark" class="Mark">批改</a-button>
+          </a-col>
+          <a-col :span="4">
+            <a-button type="primary" size="large" @click="Mark" class="AIMark" >人工智能批改</a-button>
+          </a-col>
         </a-row>
       </a-col>
       <a-col :span="10">
         <div v-if="isUpload">
+          <p class="suggestion_header">修改建议</p>
           <a-collapse v-model="activeKey" class="suggestion">
             <a-collapse-panel v-for="item in suggestions" :key="item.world" :header="item.world">
               <p>{{ item.details }}</p>
@@ -65,14 +74,14 @@ export default {
       remnant: 0,
       write_type_list: ['通用', '小学', '初中', '高中', '四级', '六级', '考研', '雅思', '托福'],
       write_type: '通用',
-      isUpload: true,
+      isUpload: false,
       text: `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`,
       activeKey: ['1'],
       suggestions: [
           { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
-          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
-          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' },
-          { world: 'not', details: '词汇使用不当会对语义产生影响，建议将 not 修改为 no' }
+          { world: 'for', details: '混淆介词，建议将 for 修改为 on' },
+          { world: 'the', details: '限定词冗余可能影响语义或地道表达，建议删除 the' },
+          { world: 'energizing', details: '非谓语动词不能单独做谓语，建议将 energizing 修改为 energize' }
       ]
     }
   },
@@ -120,8 +129,12 @@ export default {
   border-radius: 25px;
   background-color: #ffffff;
 }
-/deep/ .ant-btn.ant-btn-primary.ant-btn-lg {
+/deep/ .Mark {
   width: 100px;
+  border-radius: 10px;
+}
+/deep/ .AIMark{
+  width: 130px;
   border-radius: 10px;
 }
 .write_type {
@@ -158,9 +171,12 @@ export default {
   margin-bottom: 20px;
 }
 /deep/ .suggestion{
-    height: 600px;
-    margin-top: 25px;
+    height: 550px;
     border-radius: 25px;
     overflow-y: scroll;
+}
+.suggestion_header{
+    text-align: center;
+    font-size:40px;
 }
 </style>

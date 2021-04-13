@@ -57,9 +57,9 @@ export default {
   name: 'CardList',
   data () {
     this.tabList = [
-      { key: 'tab1', tab: '快速开始' },
-      { key: 'tab2', tab: '产品简介' },
-      { key: 'tab3', tab: '产品文档' }
+      { key: 'tab1', tab: '语法强化' },
+      { key: 'tab2', tab: '逻辑训练' },
+      { key: 'tab3', tab: '地道表达' }
     ]
     return {
       tabActiveKey: 'tab1',
